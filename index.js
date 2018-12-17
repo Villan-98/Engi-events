@@ -1,6 +1,9 @@
 /* Created by Villan-98 on 14-12-2018*/
+
 const express=require('express')
 const path=require('path')
+require('./db/model')
+
 const app=express()
 app.get('/',((r,s)=>{
     s.send("Linstening ypu")
