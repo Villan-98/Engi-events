@@ -26,6 +26,9 @@ const user = mongoose.model('user',userSchema)
 
 mongoose.connection.once('open',()=>{
     console.log('made db connection')
-})
+}).on('error',((error)=>{
+    console.log("error in connection",error)
+}))
+module.exports=user
 
 
