@@ -1,11 +1,13 @@
-const User=require('../db/model').user
+const User=require('../db/models/user')
 module.exports={
-    createUser:async((requery)=>{
+    createUser:
+        function(requery){
         console.log(requery)
+
         var temp=new User({
             username:requery.name,
             password:requery.password
         })
-        temp.save()
-    })
+       return  temp.save()
+    }
 }

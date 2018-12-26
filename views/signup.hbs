@@ -1,0 +1,49 @@
+
+<div class="container bg-light signup">
+    <div id="error" class="row">
+
+    </div>
+    <div class="row">
+        <div class="col-md-8 offset-4">
+
+            <form method="post" action="/auth/signup">
+
+                <div class="row">
+                    <div class="col-md-3 ">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" id="name"  name="name" placeholder="Enter Name" autofocus>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" name="password" class="form-control" id="password" placeholder="Password">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="cpassword">Confirm Password</label>
+                            <input type="password" name="cpassword" class="form-control" id="cpassword" placeholder="Confirm Password">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="secret">Secret</label>
+                            <input type="password" name="secret" class="form-control" id="secret" placeholder="Secret">
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn col-md-2 offset-1 mt-3 btn-success">Register</button>
+            </form>
+
+        </div>
+    </div>
+</div>

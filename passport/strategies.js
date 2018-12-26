@@ -1,27 +1,31 @@
 const LocalStrategy = require('passport-local').Strategy
-const User = require('../db/model').user
-//console.log("here 3")
-const localStrategy = new LocalStrategy(function
-    (username, password, done)  {
-    console.log(username,password)
-    //console.log("here4")
-    User.findOne({username: username },function (error,user){
-     if(error){
-         console.log(error)
-         return done(error)
-     }
-    if (!user) {
-        //Wrong username
-        return done(null, false, {message: 'Wrong username'})
-    }
-    if (user.password === password) {
-        // Correct user and password
-        return done(null, user)
-    } else {
-        // Correct username, wrong password
-        return done(null, false, {message: 'Wrong password'})
-    }
-})
-})
+const User = require('../db/models/user')
 
-module.exports =localStrategy
+const localStrategy = new LocalStrategy(
+    (username, password, done) => {
+        console.log(username,password)
+        User.findOne({
+                username: username
+
+        }).then((user) => {
+            console.log(user)
+            if (!user) {
+                //Wrong username
+                return done(null, false, {message: 'Wrong username'})
+            }
+            if (user.password === password) {
+                // Correct user and password
+                return done(null, user)
+            } else {
+                // Correct username, wrong password
+                return done(null, false, {message: 'Wrong password'})
+            }
+
+        }).catch((err) => {
+            return done(err)
+        })
+    })
+
+exports = module.exports = {
+    localStrategy
+}
