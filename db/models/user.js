@@ -1,8 +1,7 @@
-const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/test');
+const mongoose=require('mongoose')
 const Schema = mongoose.Schema;
 
-// define all schemas over here
+// Schema is defined over here
 
 const userSchema = new Schema({
     username:{
@@ -18,14 +17,7 @@ const userSchema = new Schema({
 
 
 
-// create all models here
-
 const user = mongoose.model('user',userSchema)
 
 
-
-mongoose.connection.once('open',()=>{
-    console.log('made db connection')
-})
-
-
+module.exports=user

@@ -1,0 +1,31 @@
+
+<div class="container bg-light signin">
+    <div id="error" class="row">
+
+    </div>
+    <div id="product_signin" class="row">
+
+    </div>
+    <form  id="signinForm" method="post" action="../auth/signin">
+        <div class="row">
+            <div class="col-md-3 offset-md-4">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" name="username" class="form-control" id="name" placeholder="Enter the name" autofocus>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3  offset-md-4">
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" class="form-control" id="password" placeholder="Password">
+                </div>
+            </div>
+        </div>
+
+        <button type="submit" class="col-md-3 btn btn-success offset-md-4">Submit</button>
+    </form>
+    <a href="/auth/signup"><input class=" col-md-2 mt-2 offset-md-5 btn btn-light btn-sm" type="button" value="New? Sign up for free here!"></a>
+
+</div>
