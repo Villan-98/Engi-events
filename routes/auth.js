@@ -20,7 +20,10 @@ route.post('/signup',(req,res)=>{
             .then((data)=>{
                 console.log(data)
                 console.log("User Created")
+                res.redirect('/auth/signin')
             })
+            .catch(e=>res.err({'internal server error':'400'}))
+
     }
     else
     {

@@ -30,5 +30,5 @@ app.use('/admin',require('./routes/admin'))
 app.use('/events',require('./routes/events'))
 app.use('/auth',require('./routes/auth'))
 app.listen(4000,(()=>{
-    console.log("Listening to port 3000...")
+    console.log("Listening to port 4000...")
 }))
