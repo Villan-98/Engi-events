@@ -2,11 +2,11 @@ const route=require('express').Router()
 route.get('/',(req,res)=>{
     if(req.isAuthenticated())
     {
-        res.send("welcome sir")
+        res.render('admin')
     }
     else
     {
-        res.send("not authenticated")
+        res.redirect("/auth/signin")
     }
 })
 module.exports=route
