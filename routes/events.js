@@ -1,9 +1,18 @@
 const route=require('express').Router()
 const ctrl=require('../controllers/events')
-function authenticate(){
 
-}
 route.get('/',((r,s)=>{
+    ctrl.fetchEvents()
+        .then((data)=>{
+            console.log(data.name)
+            console.log(data)
+            s.render('home',data)
+        })
+        .catch((err)=>{
+            console.log(err)
+            s.send("Oops something went wrong")
+        })
+
     s.send("On the event page")
 }))
 route.get('/add',((r,s)=>{
@@ -16,7 +25,18 @@ route.get('/add',((r,s)=>{
 route.get('/all',((r,s)=>{
 
     if(r.isAuthenticated())
-    s.render("allEvents")
+        ctrl.fetchEvents()
+            .then((data)=>{
+                console.log(data[0])
+                console.log(data[0].name)
+                console.log(data)
+                s.render('allEvents',{data})
+            })
+            .catch((err)=>{
+                console.log(err)
+                s.send("Oops something went wrong")
+            })
+    //s.render("allEvents")
     else
     s.redirect('/auth/signin')
 }))

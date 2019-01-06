@@ -1,3 +1,14 @@
-<h1>
-    by sachin boss
-</h1>
+<div>
+
+    {{# each data as |event| }}
+        {{event.name}}
+    <br>
+        {{# each event.catg as |category|}}
+            {{category}}
+            <br>
+        {{/each}}
+        {{event.incharge}}
+    <br>
+        {{event.phn}}
+    {{/each}}
+</div>

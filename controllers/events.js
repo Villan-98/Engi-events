@@ -19,5 +19,11 @@ module.exports={
 
             })
             return  temp.save()
-        }
+        },
+    fetchEvents:
+    function (requery) {
+        return Event.find({}/*,function(err,data){
+            return data;
+        }*/)
+    }
 }
