@@ -1,0 +1,55 @@
+
+<div class="container bg-light">
+    </div>
+    <div class="row">
+        <div class="col-md-8 offset-4">
+
+            <form method="post" action="/events/newEvent">
+
+                <div class="row">
+                    <div class="col-md-8 ">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" id="name"  name="name" placeholder="Event Name" autofocus>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 ">
+                        <div class="form-group">
+                            <label for="date">Date</label>
+                            <input type="date" class="form-control" id="date"  name="date" placeholder="Event date">
+                        </div>
+                    </div>
+                    <div class="col-md-4 ">
+                        <div class="form-group">
+                            <label for="incharge">incharge</label>
+                            <input type="text" class="form-control" id="incharge"  name="incharge" placeholder="Event incharge">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-8 ">
+                        <div class="form-group">
+                            <label for="catg">Categories</label>
+                            <input type="text" class="form-control" id="catg" name="catg" placeholder='categories(use " , " as seperator for categories)'>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-8 ">
+                        <div class="form-group">
+                            <label for="phn">incharge contact no.</label>
+                            <input type="number" class="form-control" id="phn"  name="phn" placeholder="incharge contact no." autofocus>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn col-md-2 mt-3 btn-success">Add Event</button>
+            </form>
+
+        </div>
+    </div>
+</div>
