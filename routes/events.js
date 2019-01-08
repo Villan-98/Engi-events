@@ -80,7 +80,7 @@ route.get('/all',((r,s)=>{
 }))
 
 route.post('/newEvent',(req,res)=>{
-    if(r.isAuthenticated())
+    if(req.isAuthenticated())
     {
         ctrl.createEvent(req.body)
             .then((data)=>{
@@ -92,7 +92,7 @@ route.post('/newEvent',(req,res)=>{
     }
     else
     {
-        res.redirect('auth/signin')
+        res.redirect('/auth/signin')
     }
 
 })
