@@ -1,6 +1,18 @@
 const route=require('express').Router()
 const ctrl=require('../controllers/events')
-
+route.get('/register',(r,s)=>{
+    console.log(r.params)
+   // console.log(r.query)
+    ctrl.eventDetail({name:r.query.category})
+        .then((event)=>{
+            console.log(event)
+            if(event===null)        //if someone alter category to some unknown value
+            {
+                s.redirect('/')
+            }
+            s.render('eventRegistration',{event})
+        })
+})
 route.get('/',((r,s)=>{
     ctrl.fetchEvents()
         .then((data)=>{

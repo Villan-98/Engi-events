@@ -25,5 +25,11 @@ module.exports={
         return Event.find({}/*,function(err,data){
             return data;
         }*/)
+    },
+    eventDetail:
+    function(requery){
+        return Event.findOne({
+            name:requery.name
+            })
     }
 }
