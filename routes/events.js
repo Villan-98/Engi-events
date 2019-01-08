@@ -1,5 +1,6 @@
 const route=require('express').Router()
 const ctrl=require('../controllers/events')
+const ctrlTeam=require('../controllers/team')
 route.get('/register',(r,s)=>{
     console.log(r.params)
    // console.log(r.query)
@@ -11,6 +12,31 @@ route.get('/register',(r,s)=>{
                 s.redirect('/')
             }
             s.render('eventRegistration',{event})
+        })
+})
+route.post('/register',(r,s)=>{
+    console.log(r.body)
+    ctrlTeam.findTeam(r.body)
+        .then((data)=>{
+            if(data===null)
+            {
+                ctrlTeam.registerTeam(r.body)
+                    .then((data)=>{
+                        s.send("mission accomplished")
+                    })
+                    .catch((err)=>{
+                        s.send("oops something went wrong")
+                    })
+            }
+            else
+            {
+                s.send("plz.register through a different team name")
+            }
+        })
+        .catch((err)=>{
+            console.log(err)
+
+            s.send("oops something went wrong")
         })
 })
 route.get('/',((r,s)=>{
