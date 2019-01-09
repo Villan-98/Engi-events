@@ -22,15 +22,20 @@ route.post('/register',(r,s)=>{
             {
                 ctrlTeam.registerTeam(r.body)
                     .then((data)=>{
-                        s.send("mission accomplished")
+                        s.render("regResponse")
                     })
                     .catch((err)=>{
+                        console.log(err)
                         s.send("oops something went wrong")
                     })
             }
             else
             {
-                s.send("plz.register through a different team name")
+                //it there already exist a team
+
+                let alert={alert:"plz.register through a different team name"}
+
+                s.render("eventRegistration",{alert})
             }
         })
         .catch((err)=>{
