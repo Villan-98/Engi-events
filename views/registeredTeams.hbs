@@ -1,0 +1,68 @@
+<div class="row">
+    <div class="col">
+        <ul>
+            <li>
+                <div class="row">
+                    <div class="col">
+                    <span>
+                        Team Name
+                    </span>
+                    </div>
+                    <div class="col">
+                    <span>
+                        Event Name
+                    </span>
+                    </div>
+
+                    <div class="col">
+                    <span>
+                        Sub-Category
+                    </span>
+                    </div>
+                    <div class="col">
+                    <span>
+                        Contact No.
+                    </span>
+                    </div>
+                    <div class="col">
+                    <span>
+                        College Name
+                    </span>
+                    </div>
+                </div>
+            </li>
+            {{#each teams as |team|}}
+            <li>
+                <div class="row">
+                    <div class="col">
+                        <span>
+                            {{team.teamName}}
+                         </span>
+                    </div>
+                    <div class="col">
+                        <span>
+                            {{team.eventName}}
+                        </span>
+                    </div>
+                    <div class="col">
+                        <span>
+                            {{team.subCategory}}
+                        </span>
+                    </div>
+                    <div class="col">
+                        <span>
+                            {{team.contactNo}}
+                        </span>
+                    </div>
+                    <div class="col">
+                        <span>
+                            {{team.collegeName}}
+                        </span>
+                    </div>
+                </div>
+            </li>
+            {{/each}}
+        </ul>
+
+    </div>
+</div>

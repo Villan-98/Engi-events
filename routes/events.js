@@ -39,6 +39,14 @@ route.post('/register',(r,s)=>{
             s.send("oops something went wrong")
         })
 })
+route.get('/registeredTeams',(r,s)=>{
+    console.log(r.query)
+    ctrlTeam.fetchTeams({eventName:r.query.event})
+        .then((teams)=>{
+            console.log(teams)
+            s.render("registeredTeams",{teams})
+        })
+})
 route.get('/',((r,s)=>{
     ctrl.fetchEvents()
         .then((data)=>{
@@ -64,11 +72,9 @@ route.get('/all',((r,s)=>{
 
     if(r.isAuthenticated())
         ctrl.fetchEvents()
-            .then((data)=>{
-                console.log(data[0])
-                console.log(data[0].name)
-                console.log(data)
-                s.render('allEvents',{data})
+            .then((events)=>{
+                //console.log(data)
+                s.render('allEvents',{events})
             })
             .catch((err)=>{
                 console.log(err)

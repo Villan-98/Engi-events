@@ -22,5 +22,11 @@ module.exports={
         return Team.findOne({
             teamName:requery.teamName
         })
+    },
+    fetchTeams:
+    function(requery){
+        return Team.findOne({
+            eventName:requery.eventName
+        })
     }
 }
